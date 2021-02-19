@@ -6,4 +6,14 @@
     background-position: center;
     border: 2px solid #ffffff;
     right: 0;
+    cursor: pointer;
+}
+.profile__add-button:hover {
+    opacity: .6;
+}
+@media screen and (max-width: 768px) {
+    .profile__add-button {
+        width: 100%;
+        margin-top: 36px;
+    }
 }

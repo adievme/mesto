@@ -1,4 +1,4 @@
-.profile-info-edit {
+.profile__info-edit {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }

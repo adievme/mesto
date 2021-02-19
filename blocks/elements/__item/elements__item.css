@@ -1,0 +1,10 @@
+.elements__item {
+    list-style-type: none;
+    margin: 0;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+}
+

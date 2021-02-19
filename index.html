@@ -22,25 +22,80 @@
                         <img class="profile__avatar" src="./images/Avatar.png" alt="аватар"> 
                         <div class="profile__info-edit">  
                             <div class="profile__header">
-                                <h1 class="profile__title">Жак-Ив Кусто</h1>
-                                <button class="profile__edit-button"></button>  
+                                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                                <p class="profile__job">Исследователь океана</p> 
                             </div>
-                            <p class="profile__subtitle">Исследователь океана</p>
+                            <button class="profile__edit-button"></button>
                         </div>
                     </div>
                     <button class="profile__add-button"></button>
                 </section>
 
                 <section class="elements">
-
+                    <ul class="elements__list">
+                        <li class="elements__item">   
+                            <img class="elements__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
+                            <div class=elements__figcaption>
+                                <figcaption class="elements__text">Карачаевск</figcaption>
+                                <button class="elements__like-button"></button>
+                            </div> 
+                        </li>
+                        <li class="elements__item">
+                            <img class="elements__photo" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
+                            <div class=elements__figcaption>
+                                <figcaption class="elements__text">Гора Эльбрус</figcaption>
+                                <button class="elements__like-button"></button>
+                            </div>
+                        </li>
+                        <li class="elements__item">
+                            <img class="elements__photo" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
+                            <div class=elements__figcaption>
+                                <figcaption class="elements__text">Домбай</figcaption>
+                                <button class="elements__like-button"></button>
+                            </div>
+                        </li>
+                        <li class="elements__item">
+                            <img class="elements__photo" src="./images/kirill-pershin-1404681-unsplash.png" alt="Гора Эльбрус">
+                            <div class=elements__figcaption>
+                                <figcaption class="elements__text">Гора Эльбрус</figcaption>
+                                <button class="elements__like-button"></button>
+                            </div>
+                        </li>
+                        <li class="elements__item">
+                            <img class="elements__photo" src="./images/kirill-pershin-1556355-unsplash.png" alt="Домбай">
+                                <div class=elements__figcaption>
+                                <figcaption class="elements__text">Домбай</figcaption>
+                                <button class="elements__like-button"></button>
+                            </div>
+                        </li>
+                        <li class="elements__item">
+                            <img class="elements__photo" src="./images/kirill-pershin-1088404-unsplash.png" alt="Карачаевск">
+                            <div class=elements__figcaption>
+                                <figcaption class="elements__text">Карачаево-Черкесия</figcaption>
+                                <button class="elements__like-button"></button>
+                            </div>
+                        </li>
+                    </ul>
                 </section>
 
             </main>
 
             <footer class="footer">
-
+                <p class="footer__text">&copy; 2021 Mesto Russia</p>
             </footer>
 
+            <section class="popup">
+                <div class="popup__container">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <form class="popup__form">
+                        <input type="text" placeholder="Имя" value="" id="input_name" class="popup__input" required>
+                        <input type="text" placeholder="О себе" value="" id="input_job" class="popup__input" required>
+                        <button class="popup__save" type="submit">Сохранить</button>
+                    </form>
+                    <button class="popup__close" type="button"></button> 
+                </div>
+            </section>
         </div>
 
+        <script src="./scripts/index.js"></script>    
     </body>
