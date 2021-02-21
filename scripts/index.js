@@ -8,10 +8,13 @@ let nameProfile = document.querySelector('.profile__name');
 let jobProfile = document.querySelector('.profile__job');
 // открытие и закрытие Popup
 function openPopup() {
-    popup.classList.toggle('popup__active')
+    if (popup.classList.contains('popup')) {
+        nameInput.value = nameProfile.textContent;
+        jobInput.value = jobProfile.textContent;
+        popup.classList.toggle('popup_active');
+    }
 }
-nameInput.value = nameProfile.textContent; //Загрузка информации из страницы в поля ввода попапа
-jobInput.value = jobProfile.textContent;
+
 openButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', openPopup);
 //Сохранение изменений в поле ввода
