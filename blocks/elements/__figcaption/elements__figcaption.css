@@ -1,7 +1,9 @@
 .elements__figcaption {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px 15px 31px 21px;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29px;
+    color: #000000;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
