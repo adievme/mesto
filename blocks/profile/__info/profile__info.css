@@ -8,6 +8,5 @@
 @media screen and (max-width: 620px) {
     .profile__info {
         flex-direction: column;
-        text-align: center;
     }
 }
