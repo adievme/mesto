@@ -1,29 +1,30 @@
 const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-      },
-      {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-      },
-      {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-      },
-      {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-      },
-      {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-      },
-      {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-      }
+  {
+    name: 'Эверест',
+    link: 'https://i.ibb.co/qpkfHd4/image.jpg'
+    },
+  {
+    name: 'Чогори',
+    link: 'https://i.ibb.co/4SmLZvJ/image.jpg'
+    },
+  {
+    name: 'Канченджанга',
+    link: 'https://i.ibb.co/bFpsJg8/image.jpg'
+    },
+  {
+    name: 'Дхаулагири',
+    link: 'https://i.ibb.co/5YDJTGr/image.jpg'
+    },
+  {
+    name: 'Манаслу',
+    link: 'https://i.ibb.co/pWRvzg9/image.jpg'
+    },
+  {
+    name: 'Аннапурна',
+    link: 'https://i.ibb.co/L9h8cz0/image.jpg'
+    }
 ]
+
 const editButton = document.querySelector('.profile__edit-button');
       addButton = document.querySelector('.profile__add-button');
       nameProfile = document.querySelector('.profile__name');
@@ -41,7 +42,25 @@ const editButton = document.querySelector('.profile__edit-button');
       nameInput = document.querySelector('#input_name');
       jobInput = document.querySelector('#input_job');
 
+      containerListCard = document.querySelector('.elements__list');
+
 let modalWindow;
+
+function renderCards() {
+  const result = initialCards.map(function(item) {
+    return `
+      <li class="element__item">   
+        <img class="element__photo" src="${item.link}" alt="Эверест">
+        <div class="element__figure">
+          <h2 class="element__name">${item.name}</h2>
+          <button class="element__like-button" type="button"></button>
+        </div> 
+      </li> 
+    `; 
+  }).join('');
+  containerListCard.insertAdjacentHTML('afterbegin', result);
+}
+renderCards();
 
 //Открыть попап
 function openModalWindow(modalWindow) {
