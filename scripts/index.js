@@ -44,20 +44,37 @@ const editButton = document.querySelector('.profile__edit-button');//cсылки
 
       containerListCard = document.querySelector('.elements__list');//ссылка на контейнер карточек
 
+      templateElement = document.querySelector('#element');//ссылка на темплэйт
+
 let modalWindow;
 
-//Рендерить на страницу карточки из массива
+//Рендерить карточки из массива  на страницу 
 function renderCards() {
-  const result = initialCards.map(createNewCard).join('');
-  containerListCard.insertAdjacentHTML('afterbegin', result);
+  const result = initialCards.map(createCardDomNode);
+  
+  containerListCard.prepend(...result);
 }
+
+function createCardDomNode(item) {
+  const newCard = templateElement.content.cloneNode(true);
+  const name = newCard.querySelector('.element__name');
+  const linkImage = newCard.querySelector('.element__image');
+  
+  name.textContent = item.name;
+  linkImage.src = item.link;
+
+  return newCard;
+}
+
 renderCards();
+
+
 
 //Открыть попап
 function openModalWindow(modalWindow) {
     modalWindow.classList.add('popup_active');
 }
-
+ 
 //Показать попап редактирования профиля 
 function openPopupEditProfile() {
     openModalWindow(editFormModalWindow);
@@ -80,31 +97,22 @@ closeButton.forEach((item) => {
     item.addEventListener('click', closeModalWindow);
 });
 
-//Создать новую карточку
-function createNewCard(item) {
-  return `
-    <li class="element__item">   
-      <img class="element__photo" src="${item.link}" alt="">
-      <div class="element__figure">
-        <h2 class="element__name">${item.name}</h2>
-        <button class="element__like-button" type="button"></button>
-      </div> 
-    </li> 
-  `; 
-}
-
 //Добавить новую карточку
 function addCard(evt) {
   evt.preventDefault();
   const title = titleInput.value;
   const link = linkInput.value;
-  const newCard = createNewCard({
+  const newCard = createCardDomNode({
     name: title,
     link: link
   });
-  containerListCard.insertAdjacentHTML('afterbegin', newCard);
+  containerListCard.prepend(newCard);
+  titleInput.value = '';
+  linkInput.value = '';
+
   closeModalWindow(evt)
 }
+
 //Редактировать информацию профиля
 function formSubmitHandler(evt) {
     evt.preventDefault();
