@@ -6,7 +6,7 @@
     background-color: transparent;
     cursor: pointer;
     padding: 0;
-    border: 0;
+    border: none;
 }
 .elements__like-button_active:hover {
     opacity: .5;

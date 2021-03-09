@@ -48,15 +48,25 @@ const editButton = document.querySelector('.profile__edit-button');//cсылки
 
 let modalWindow;
 
+//Лайкнуть карточку
+function likeCard(event) {
+  event.target.classList.toggle('element__like-button_active');
+}
+
+//Удалить карточку
 function deleteCard(event) {
   event.target.closest('.element__item').remove();
 }
-
-function addCardListener(card) {
+//Добавить карточкам слушатели удаления и лайка
+function addCardListeners(card) {
   const deleteButton = card.querySelector('.element__delete');
   deleteButton.addEventListener('click', deleteCard);
+
+  const likeButton = card.querySelector('.element__like-button');
+  likeButton.addEventListener('click', likeCard);
 }
 
+//Cоздать дом нод
 function createCardDomNode(item) {
   const newItem = templateElement.content.cloneNode(true);
   const name = newItem.querySelector('.element__name');
@@ -72,7 +82,7 @@ function createCardDomNode(item) {
 function renderCards() {
   const result = initialCards.map(function(item){
     const newCard= createCardDomNode(item);
-    addCardListener(newCard);
+    addCardListeners(newCard);
     return newCard;
   });
   
@@ -117,12 +127,12 @@ function addCardFornListener(evt) {
     link: link
   });
 
-  addCardListener(newCard);
+  addCardListeners(newCard);
 
   containerListCard.prepend(newCard);
   titleInput.value = '';
   linkInput.value = '';
-  
+
   closeModalWindow(evt);
 }
 
