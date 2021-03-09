@@ -48,27 +48,37 @@ const editButton = document.querySelector('.profile__edit-button');//cсылки
 
 let modalWindow;
 
-//Рендерить карточки из массива  на страницу 
-function renderCards() {
-  const result = initialCards.map(createCardDomNode);
-  
-  containerListCard.prepend(...result);
+function deleteCard(event) {
+  event.target.closest('.element__item').remove();
+}
+
+function addCardListener(card) {
+  const deleteButton = card.querySelector('.element__delete');
+  deleteButton.addEventListener('click', deleteCard);
 }
 
 function createCardDomNode(item) {
-  const newCard = templateElement.content.cloneNode(true);
-  const name = newCard.querySelector('.element__name');
-  const linkImage = newCard.querySelector('.element__image');
+  const newItem = templateElement.content.cloneNode(true);
+  const name = newItem.querySelector('.element__name');
+  const linkImage = newItem.querySelector('.element__image');
   
   name.textContent = item.name;
   linkImage.src = item.link;
 
-  return newCard;
+  return newItem;
 }
 
+//Рендерить карточки из массива  на страницу 
+function renderCards() {
+  const result = initialCards.map(function(item){
+    const newCard= createCardDomNode(item);
+    addCardListener(newCard);
+    return newCard;
+  });
+  
+  containerListCard.prepend(...result);
+}
 renderCards();
-
-
 
 //Открыть попап
 function openModalWindow(modalWindow) {
@@ -98,7 +108,7 @@ closeButton.forEach((item) => {
 });
 
 //Добавить новую карточку
-function addCard(evt) {
+function addCardFornListener(evt) {
   evt.preventDefault();
   const title = titleInput.value;
   const link = linkInput.value;
@@ -106,11 +116,14 @@ function addCard(evt) {
     name: title,
     link: link
   });
+
+  addCardListener(newCard);
+
   containerListCard.prepend(newCard);
   titleInput.value = '';
   linkInput.value = '';
-
-  closeModalWindow(evt)
+  
+  closeModalWindow(evt);
 }
 
 //Редактировать информацию профиля
@@ -125,7 +138,7 @@ editButton.addEventListener('click', openPopupEditProfile);
 addButton.addEventListener('click', openPopupAddCard);
 
 saveFormElement.addEventListener('submit', formSubmitHandler); 
-addFormElement.addEventListener('submit', addCard);
+addFormElement.addEventListener('submit', addCardFornListener);
 
 
 
