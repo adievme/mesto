@@ -7,6 +7,7 @@
     cursor: pointer;
     padding: 0;
     border: none;
+    outline: none;
 }
 .elements__like-button:hover {
     opacity: .5;

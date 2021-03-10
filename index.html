@@ -31,52 +31,7 @@
                 </section>
 
                 <section class="elements">
-                    <ul class="elements__list">
-<!--
-                        <li class="elements__item">   
-                            <img class="elements__photo" src="./images/Эверест.jpg" alt="Эверест">
-                            <div class="elements__figure">
-                                <h2 class="elements__name">Эверест</h2>
-                                <button class="elements__like-button" type="button"></button>
-                            </div> 
-                        </li>
-                        <li class="elements__item">
-                            <img class="elements__photo" src="./images/Чогори.jpg" alt="Чогори">
-                            <div class="elements__figure">
-                                <h2 class="elements__name">Чогори</h2>
-                                <button class="elements__like-button" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="elements__item">
-                            <img class="elements__photo" src="./images/Канченджанга.jpg" alt="Канченджанга">
-                            <div class="elements__figure">
-                                <h2 class="elements__name">Канченджанга</h2>
-                                <button class="elements__like-button" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="elements__item">
-                            <img class="elements__photo" src="./images/Дхаулагири.jpg" alt="Дхаулагири">
-                            <div class="elements__figure">
-                                <h2 class="elements__name">Дхаулагири</h2>
-                                <button class="elements__like-button" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="elements__item">
-                            <img class="elements__photo" src="./images/Манаслу.jpg" alt="Манаслу">
-                            <div class="elements__figure">
-                                <h2 class="elements__name">Манаслу</h2>
-                                <button class="elements__like-button" type="button"></button>
-                            </div>
-                        </li>
-                        <li class="elements__item">
-                            <img class="elements__photo" src="./images/Аннапурна.jpg" alt="Аннапурна">
-                            <div class="elements__figure">
-                                <h2 class="elements__name">Аннапурна</h2>
-                                <button class="elements__like-button" type="button"></button>
-                            </div>
-                        </li>
--->
-                    </ul>
+                    <ul class="elements__list"></ul>
                 </section>
 
             </main>
@@ -85,7 +40,7 @@
                 <p class="footer__text">&copy; 2021 Mesto Russia</p>
             </footer>
             <!--Попап редактирования информации-->
-            <section class="popup edit-profile">
+            <section class="popup popup__edit-profile">
                 <div class="popup__container">
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <form class="popup__form save-info" name="form">
@@ -97,7 +52,7 @@
                 </div>
             </section>
             <!--Попап добавления нового места-->
-            <section class="popup add-card">
+            <section class="popup popup__add-card">
                 <div class="popup__container">
                     <h2 class="popup__title">Новое место</h2>
                     <form class="popup__form add-newCard" name="form">
@@ -105,6 +60,14 @@
                         <input type="text" placeholder="Ссылка на картинку" value="" id="input_link" class="popup__input" name="link" required>
                         <button class="popup__save" type="submit" aria-label="save">Создать</button>
                     </form>
+                    <button class="popup__close" type="button" aria-label="close"></button> 
+                </div>
+            </section>
+            <!--Попап открытия картинки-->
+            <section class="popup popup__preview">
+                <div class="popup__preview-container">
+                    <img  class="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg" alt="#">
+                    <h2 class="popup__title-preview">Эверест</h2>
                     <button class="popup__close" type="button" aria-label="close"></button> 
                 </div>
             </section>

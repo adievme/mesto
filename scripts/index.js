@@ -1,3 +1,11 @@
+/* ссылки на разные картинки
+https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg 
+https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg
+https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg
+https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg
+https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg
+https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg
+*/
 const initialCards = [
   {
     name: 'Эверест',
@@ -31,8 +39,9 @@ const editButton = document.querySelector('.profile__edit-button');//cсылки
       jobProfile = document.querySelector('.profile__job');
       
       popup = document.querySelector('.popup');//ссылки на элементы попапа
-      editFormModalWindow = document.querySelector('.edit-profile');
-      cardFormModalWindow = document.querySelector('.add-card');
+      editFormModalWindow = document.querySelector('.popup__edit-profile');
+      cardFormModalWindow = document.querySelector('.popup__add-card');
+      previewFormModalWindow = document.querySelector('.popup__preview');
       saveFormElement = document.querySelector('.save-info');
       addFormElement = document.querySelector('.add-newCard');
       closeButton = document.querySelectorAll('.popup__close');
@@ -46,6 +55,8 @@ const editButton = document.querySelector('.profile__edit-button');//cсылки
 
       templateElement = document.querySelector('#element');//ссылка на темплэйт
 
+      addPreview = document.querySelector('.element__image');
+console.log(addPreview);
 let modalWindow;
 
 //Лайкнуть карточку
@@ -65,13 +76,14 @@ function addCardListeners(card) {
   const likeButton = card.querySelector('.element__like-button');
   likeButton.addEventListener('click', likeCard);
 }
-
+  
+  
+  
 //Cоздать дом нод
 function createCardDomNode(item) {
   const newItem = templateElement.content.cloneNode(true);
   const name = newItem.querySelector('.element__name');
   const linkImage = newItem.querySelector('.element__image');
-  
   name.textContent = item.name;
   linkImage.src = item.link;
 
@@ -107,7 +119,11 @@ function openPopupEditProfile() {
 function openPopupAddCard() {
     openModalWindow(cardFormModalWindow);
 }
-
+//Показать попап просмотра фото
+function openPopupPreview() {
+  console.log('показать');
+  //openModalWindow(previewFormModalWindow);
+}
 //Закрыть попап
 function closeModalWindow(event) {
   event.target.closest('.popup').classList.remove('popup_active');
@@ -146,11 +162,10 @@ function formSubmitHandler(evt) {
 
 editButton.addEventListener('click', openPopupEditProfile);
 addButton.addEventListener('click', openPopupAddCard);
+addEventListener('click', openPopupPreview);
 
 saveFormElement.addEventListener('submit', formSubmitHandler); 
 addFormElement.addEventListener('submit', addCardFornListener);
-
-
 
 
 
