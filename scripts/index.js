@@ -41,10 +41,13 @@ const jobProfile = document.querySelector('.profile__job');
 const popup = document.querySelector('.popup');//ссылки на элементы попапа
 const editFormModalWindow = document.querySelector('.popup_type_edit-profile');
 const cardFormModalWindow = document.querySelector('.popup_type_add-card');
+const previewFormModalWindow = document.querySelector('.popup_type_preview');
+const popupCloseButtonList = document.querySelectorAll('.popup__close');
+const nameCard = previewFormModalWindow.querySelector('.popup__title-preview');
+const imageCard = previewFormModalWindow.querySelector('.popup__image');
       
 const saveFormElement = document.querySelector('.save-info');
 const addFormElement = document.querySelector('.add-newCard');
-const popupCloseButtonList = document.querySelectorAll('.popup__close');
       
 const nameInput = document.querySelector('#input_name');//ссылки на input`ы формы
 const jobInput = document.querySelector('#input_job');
@@ -54,6 +57,8 @@ const linkInput = document.querySelector('#input_link');
 const containerListCard = document.querySelector('.elements__list');//ссылка на контейнер карточек
 
 const templateElement = document.querySelector('#element');//ссылка на темплэйт
+
+
 
 let   modalWindow;
     
@@ -91,10 +96,6 @@ function likeCard(event) {
 
 //Показать попап просмотра фото
 function openPopupPreview(item) {
-  const previewFormModalWindow = document.querySelector('.popup_type_preview');
-  const nameCard = previewFormModalWindow.querySelector('.popup__title-preview');
-  const imageCard = previewFormModalWindow.querySelector('.popup__image');
-
   nameCard.textContent = item.name;
   imageCard.src = item.link;
   imageCard.alt = item.name;
