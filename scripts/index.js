@@ -133,7 +133,7 @@ function addCardFornListener(evt) {
 }
 
 //Редактировать информацию профиля
-function formSubmitHandler(evt) {
+function editFormSubmitHandler(evt) {
     evt.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
