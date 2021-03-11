@@ -34,5 +34,5 @@
 @import url(../blocks/popup/__preview-container/popup__preview-container.css);
 @import url(../blocks/popup/__title-preview/popup__title-preview.css);
 @import url(../blocks/popup/__image/popup__image.css);
-@import url(../blocks/popup/__edit-profile/popup__edit-profile.css);
-@import url(../blocks/popup/__add-card/popup__add-card.css);
+@import url(../blocks/popup/__type/_edit-profile/popup__type_edit-profile.css);
+@import url(../blocks/popup/__type/_add-card/popup__type_add-card.css);

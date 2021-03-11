@@ -39,8 +39,8 @@ const editButton = document.querySelector('.profile__edit-button');//cсылки
       jobProfile = document.querySelector('.profile__job');
       
       popup = document.querySelector('.popup');//ссылки на элементы попапа
-      editFormModalWindow = document.querySelector('.popup__edit-profile');
-      cardFormModalWindow = document.querySelector('.popup__add-card');
+      editFormModalWindow = document.querySelector('.popup__type_edit-profile');
+      cardFormModalWindow = document.querySelector('.popup__type_add-card');
       
       saveFormElement = document.querySelector('.save-info');
       addFormElement = document.querySelector('.add-newCard');
@@ -91,7 +91,7 @@ function likeCard(event) {
 
 //Показать попап просмотра фото
 function openPopupPreview(item) {
-  const previewFormModalWindow = document.querySelector('.popup__preview');
+  const previewFormModalWindow = document.querySelector('.popup__type_preview');
   const nameCard = previewFormModalWindow.querySelector('.popup__title-preview');
   const imageCard = previewFormModalWindow.querySelector('.popup__image');
 
