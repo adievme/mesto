@@ -58,9 +58,7 @@ const containerListCard = document.querySelector('.elements__list');//ссылк
 
 const templateElement = document.querySelector('#element');//ссылка на темплэйт
 
-
-
-let   modalWindow;
+let modalWindow;
     
 //Рендерить карточки из массива на страницу 
 function renderCards() {
@@ -81,7 +79,7 @@ function openModalWindow(modalWindow) {
 
 //Закрыть попап
 function closeModalWindow(modalWindow) {
-modalWindow.target.closest('.popup').classList.remove('popup_active');
+  modalWindow.target.closest('.popup').classList.remove('popup_active');
 }
 
 //Удалить карточку
@@ -116,8 +114,8 @@ function openPopupAddCard() {
 }
 
 //Добавить новую карточку
-function addCardFornListener(evt) {
-  evt.preventDefault();
+function addCardFornListener(cardFormModalWindow) {
+  cardFormModalWindow.preventDefault();
   const title = titleInput.value;
   const link = linkInput.value;
   const newCard = createCardDomNode({
@@ -133,8 +131,8 @@ function addCardFornListener(evt) {
 }
 
 //Редактировать информацию профиля
-function editFormSubmitHandler(evt) {
-    evt.preventDefault();
+function editFormSubmitHandler(editFormModalWindow) {
+    editFormModalWindow.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
     closeModalWindow(editFormModalWindow);
@@ -171,7 +169,7 @@ function createCardDomNode(item) {
 editButton.addEventListener('click', openPopupEditProfile);
 addButton.addEventListener('click', openPopupAddCard);
 
-saveFormElement.addEventListener('submit', formSubmitHandler); 
+saveFormElement.addEventListener('submit', editFormSubmitHandler); 
 addFormElement.addEventListener('submit', addCardFornListener);
 
 
