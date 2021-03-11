@@ -34,26 +34,27 @@ const initialCards = [
 ]
 
 const editButton = document.querySelector('.profile__edit-button');//cсылки на элементы профиля
-      addButton = document.querySelector('.profile__add-button');
-      nameProfile = document.querySelector('.profile__name');
-      jobProfile = document.querySelector('.profile__job');
+const addButton = document.querySelector('.profile__add-button');
+const nameProfile = document.querySelector('.profile__name');
+const nameProfile = document.querySelector('.profile__name');
+const jobProfile = document.querySelector('.profile__job');
       
-      popup = document.querySelector('.popup');//ссылки на элементы попапа
-      editFormModalWindow = document.querySelector('.popup_type_edit-profile');
-      cardFormModalWindow = document.querySelector('.popup_type_add-card');
+const popup = document.querySelector('.popup');//ссылки на элементы попапа
+const editFormModalWindow = document.querySelector('.popup_type_edit-profile');
+const cardFormModalWindow = document.querySelector('.popup_type_add-card');
       
-      saveFormElement = document.querySelector('.save-info');
-      addFormElement = document.querySelector('.add-newCard');
-      popupCloseButtonList = document.querySelectorAll('.popup__close');
+const saveFormElement = document.querySelector('.save-info');
+const addFormElement = document.querySelector('.add-newCard');
+const popupCloseButtonList = document.querySelectorAll('.popup__close');
       
-      nameInput = document.querySelector('#input_name');//ссылки на input`ы формы
-      jobInput = document.querySelector('#input_job');
-      titleInput = document.querySelector('#input_title');
-      linkInput = document.querySelector('#input_link');
+const nameInput = document.querySelector('#input_name');//ссылки на input`ы формы
+const jobInput = document.querySelector('#input_job');
+const titleInput = document.querySelector('#input_title');
+const linkInput = document.querySelector('#input_link');
 
-      containerListCard = document.querySelector('.elements__list');//ссылка на контейнер карточек
+const containerListCard = document.querySelector('.elements__list');//ссылка на контейнер карточек
 
-      templateElement = document.querySelector('#element');//ссылка на темплэйт
+const templateElement = document.querySelector('#element');//ссылка на темплэйт
 
 let   modalWindow;
     
