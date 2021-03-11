@@ -106,10 +106,8 @@ function openPopupPreview(item) {
 //Показать попап редактирования профиля 
 function openPopupEditProfile() {
     openModalWindow(editFormModalWindow);
-    if (popup.classList.contains('popup') ) {
-        nameInput.value = nameProfile.textContent;
-        jobInput.value = jobProfile.textContent;
-    }
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
 }
 
 //Показать попап добавления нового места
