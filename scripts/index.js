@@ -36,7 +36,6 @@ const initialCards = [
 const editButton = document.querySelector('.profile__edit-button');//cсылки на элементы профиля
 const addButton = document.querySelector('.profile__add-button');
 const nameProfile = document.querySelector('.profile__name');
-const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
       
 const popup = document.querySelector('.popup');//ссылки на элементы попапа
@@ -76,8 +75,8 @@ function openModalWindow(modalWindow) {
 }
 
 //Закрыть попап
-function closeModalWindow(event) {
-event.target.closest('.popup').classList.remove('popup_active');
+function closeModalWindow(modalWindow) {
+modalWindow.target.closest('.popup').classList.remove('popup_active');
 }
 
 //Удалить карточку
@@ -131,7 +130,7 @@ function addCardFornListener(evt) {
   titleInput.value = '';
   linkInput.value = '';
 
-  closeModalWindow(evt);
+  closeModalWindow(cardFormModalWindow);
 }
 
 //Редактировать информацию профиля
@@ -139,11 +138,11 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
-    closeModalWindow(evt);
+    closeModalWindow(editFormModalWindow);
 }
 
 //Cлушатель кнопки закрытия попапа
-closeButton.forEach((item) => {
+popupCloseButtonList.forEach((item) => {
   item.addEventListener('click', closeModalWindow);
 });
 
