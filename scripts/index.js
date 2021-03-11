@@ -44,7 +44,7 @@ const editButton = document.querySelector('.profile__edit-button');//cсылки
       
       saveFormElement = document.querySelector('.save-info');
       addFormElement = document.querySelector('.add-newCard');
-      closeButton = document.querySelectorAll('.popup__close');
+      popupCloseButtonList = document.querySelectorAll('.popup__close');
       
       nameInput = document.querySelector('#input_name');//ссылки на input`ы формы
       jobInput = document.querySelector('#input_job');
