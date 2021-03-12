@@ -57,8 +57,7 @@ const linkInput = document.querySelector('#input_link');
 const containerListCard = document.querySelector('.elements__list');//ссылка на контейнер карточек
 
 const templateElement = document.querySelector('#element');//ссылка на темплэйт
-//let modalWindow;
-    
+
 //Рендерить карточки из массива на страницу 
 function renderCards() {
   const result = initialCards.map(function(item){ 
@@ -78,7 +77,7 @@ function openModalWindow(modalWindow) {
 
 //Закрыть попап
 function closeModalWindow(modalWindow) {
-  modalWindow.target.closest('.popup').classList.remove('popup_active');
+  modalWindow.classList.remove('popup_active');
 }
 
 //Удалить карточку
@@ -113,8 +112,8 @@ function openPopupAddCard() {
 }
 
 //Добавить новую карточку
-function addCardFornListener(cardFormModalWindow) {
-  cardFormModalWindow.preventDefault();
+function addCardFornListener(modalWindow) {
+  modalWindow.preventDefault();
   const title = titleInput.value;
   const link = linkInput.value;
   const newCard = createCardDomNode({
@@ -130,16 +129,17 @@ function addCardFornListener(cardFormModalWindow) {
 }
 
 //Редактировать информацию профиля
-function editFormSubmitHandler(editFormModalWindow) {
-    editFormModalWindow.preventDefault();
+function editFormSubmitHandler(modalWindow) {
+    modalWindow.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
+    
     closeModalWindow(editFormModalWindow);
 }
 
 //Cлушатель кнопки закрытия попапа
-popupCloseButtonList.forEach((item) => {
-  item.addEventListener('click', closeModalWindow);
+popupCloseButtonList.forEach( (item) => {
+  item.addEventListener('click', () => closeModalWindow(item.closest('.popup') ) );
 });
 
 //Cоздать дом нод
@@ -157,6 +157,7 @@ function createCardDomNode(item) {
   deleteButton.addEventListener('click', deleteCard);//Слушатель удаления
 
   likeButton.addEventListener('click', likeCard);//Слушатель лайка
+
   //Слушатель открытия попапа с картинкой
   image.addEventListener('click', () => {
     openPopupPreview(item);
