@@ -57,8 +57,7 @@ const linkInput = document.querySelector('#input_link');
 const containerListCard = document.querySelector('.elements__list');//ссылка на контейнер карточек
 
 const templateElement = document.querySelector('#element');//ссылка на темплэйт
-
-let modalWindow;
+//let modalWindow;
     
 //Рендерить карточки из массива на страницу 
 function renderCards() {
