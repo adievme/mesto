@@ -1,90 +1,100 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./pages/index.css">
-        <title>Mesto Russia</title>
-    </head>
-    <body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Mesto Russia</title>
+  </head>
+  <body class="root">
 
-        <div class="page">
+    <div class="page">
 
-            <header class="header">
-                <img class="header__logo" src="./images/logo.svg" alt="логотип">
-            </header>
+      <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="логотип">
+      </header>
 
-            <main class="content">
+      <main class="content">
 
-                <section class="profile">
-                    <div class="profile__info">
-                        <img class="profile__avatar" src="./images/Reinhold-Messner.png" alt="аватар"> 
-                        <div class="profile__info-edit">  
-                            <div class="profile__header">
-                                <h1 class="profile__name">Райнхольд Месснер</h1>
-                                <p class="profile__job">Покоритель горных вершин</p> 
-                            </div>
-                            <button class="profile__edit-button" type="button" aria-label="Edit"></button>
-                        </div>
-                    </div>
-                    <button class="profile__add-button" type="button" aria-label="add"></button>
-                </section>
-
-                <section class="elements">
-                    <ul class="elements__list"></ul>
-                </section>
-
-            </main>
-
-            <footer class="footer">
-                <p class="footer__text">&copy; 2021 Mesto Russia</p>
-            </footer>
-            <!--Попап редактирования информации-->
-            <section class="popup popup_type_edit-profile">
-                <div class="popup__container">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="popup__form save-info" name="form">
-                        <input type="text" placeholder="Имя" value="" id="input_name" class="popup__input" name="name" required>
-                        <input type="text" placeholder="О себе" value="" id="input_job" class="popup__input" name="job" required>
-                        <button class="popup__save" type="submit" aria-label="save">Сохранить</button>
-                    </form>
-                    <button class="popup__close" type="button" aria-label="close"></button> 
+        <section class="profile">
+          <div class="profile__info">
+            <img class="profile__avatar" src="./images/Reinhold-Messner.png" alt="аватар"> 
+              <div class="profile__info-edit">  
+                <div class="profile__header">
+                  <h1 class="profile__name">Райнхольд Месснер</h1>
+                  <p class="profile__job">Покоритель горных вершин</p> 
                 </div>
-            </section>
-            <!--Попап добавления нового места-->
-            <section class="popup popup_type_add-card">
-                <div class="popup__container">
-                    <h2 class="popup__title">Новое место</h2>
-                    <form class="popup__form add-newCard" name="form">
-                        <input type="text" placeholder="Название" value="" id="input_title" class="popup__input" name="title" required>
-                        <input type="text" placeholder="Ссылка на картинку" value="" id="input_link" class="popup__input" name="link" required>
-                        <button class="popup__save" type="submit" aria-label="save">Создать</button>
-                    </form>
-                    <button class="popup__close" type="button" aria-label="close"></button> 
-                </div>
-            </section>
-            <!--Попап открытия картинки-->
-            <section class="popup popup_type_preview">
-                <div class="popup__preview-container">
-                    <img  class="popup__image" src="#" alt="#">
-                    <h2 class="popup__title-preview"></h2>
-                    <button class="popup__close" type="button" aria-label="close"></button> 
-                </div>
-            </section>
-                
+                <button class="profile__edit-button" type="button" aria-label="Edit"></button>
+              </div>
+          </div>
+          <button class="profile__add-button" type="button" aria-label="add"></button>
+        </section>
+
+        <section class="elements">
+          <ul class="elements__list"></ul>
+        </section>
+
+      </main>
+
+      <footer class="footer">
+        <p class="footer__text">&copy; 2021 Mesto Russia</p>
+      </footer>
+
+      <!--Попап редактирования информации-->
+      <section class="popup popup_type_edit-profile">
+        <div class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form save-info" name="form" novalidate>
+              <input type="text" placeholder="Имя" value="" id="input_name" class="popup__input" name="name" minlength="2" maxlength="40" required>
+              <span class="popup__error" id="input_name_error" value=""></span>
+              <input type="text" placeholder="О себе" value="" id="input_job" class="popup__input" name="job" minlength="2" maxlength="200" required>
+              <span class="popup__error" id="input_job_error"></span>
+              <button class="popup__button" type="submit" aria-label="save">Сохранить</button>
+            </form>
+            <button class="popup__close" type="button" aria-label="close"></button> 
         </div>
+      </section>
 
-        <template id="element">
-            <li class="element__item">
-                <img src="#" alt="#" class="element__image">
-                <button class="element__delete" type="button"></button>
-                <div class="element__figure">
-                    <h2 class="element__name"></h2>
-                    <button class="element__like-button" type="button"></button>
-                </div>
-            </li>
-        </template>
+      <!--Попап добавления нового места-->
+      <section class="popup popup_type_add-card">
+        <div class="popup__container">
+          <h2 class="popup__title">Новое место</h2>
+          <form class="popup__form add-newCard" name="form" novalidate>
+            <input type="text" placeholder="Название" value="" id="input_title" class="popup__input" name="title" required>
+            <span class="popup__error" id="input_title_error"></span>
+            <input type="url" placeholder="Ссылка на картинку" value="" id="input_link" class="popup__input" name="link" required>
+            <span class="popup__error" id="input_link_error"></span>
+            <button class="popup__button" type="submit" aria-label="save">Создать</button>
+          </form>
+          <button class="popup__close" type="button" aria-label="close"></button> 
+        </div>
+      </section>
 
-        <script src="./scripts/index.js"></script>    
-    </body>
+      <!--Попап открытия картинки-->
+      <section class="popup popup_type_preview">
+        <div class="popup__preview-container">
+          <img  class="popup__image" src="#" alt="#">
+          <h2 class="popup__title-preview"></h2>
+          <button class="popup__close" type="button" aria-label="close"></button> 
+        </div>
+      </section>
+                
+    </div>
+
+    <template id="element">
+      <li class="element__item">
+        <img src="#" alt="#" class="element__image">
+        <button class="element__delete" type="button"></button>
+        <div class="element__figure">
+          <h2 class="element__name"></h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./scripts/validate.js"></script>    
+    <script src="./scripts/index.js"></script>
+
+  </body>
+  
 </html>
