@@ -1,16 +1,17 @@
 import { 
   initialCards, 
   cardFormModalWindow,
-  previewFormModalWindow,
+  previevFormModalWindow,
+  previewFormSelector,
   nameCard,
   imageCard,
-  containerListCard,
+  containerCardList,
   titleInput,
   linkInput 
-} from './constants.js'
-import { openModalWindow, closeModalWindow } from './utils.js';
+} from '../utils/constants.js'
+import Popup from './Popup.js';
 
-class Card {
+export default class Card {
   constructor(data, cardSelector) {
     this._name = data.name;
     this._image = data.link; 
@@ -69,18 +70,15 @@ class Card {
     imageCard.alt = this._name;
     nameCard.textContent = this._name;
 
-    openModalWindow(previewFormModalWindow);
+    //openPopupPreview.open();
   }
 }
 
-// Cоздать экземпляр карточки
-const createCard = (item, toEnd) => {
-  const newCard = new Card(item, '#element');
-  const cardElement = newCard.generateCard();
-  
-  const method = toEnd ? 'append' : 'prepend';
-  containerListCard[method](cardElement);
-}
+//const openPopupPreview = new Popup(previewFormSelector)
+
+//openPopupPreview.setEventListeners();
+
+
 
 // Добавить новую карточку
 const addCardFormListener = (evt) => {
@@ -91,13 +89,23 @@ const addCardFormListener = (evt) => {
 
   createCard( { name: title, link: link }, false);
 
-  closeModalWindow(cardFormModalWindow);
+  //closeModalWindow(cardFormModalWindow);
+}
+
+// Cоздать экземпляр карточки
+/*
+const createCard = (item, toEnd) => {
+  const newCard = new Card(item, '#element');
+  const cardElement = newCard.generateCard();
+  
+  const method = toEnd ? 'append' : 'prepend';
+  containerCardList[method](cardElement);
 }
 
 initialCards.forEach( (item) => {
   createCard(item, true);
 });
-
+*/
 export { addCardFormListener };
 
 

@@ -1,6 +1,9 @@
-import { addCardFormListener } from './Card.js';
-import { FormValidator } from './FormValidator.js';
-import { openModalWindow, closeModalWindow } from './utils.js';
+import { addCardFormListener } from '../scripts/components/Card.js';
+import { FormValidator } from '../scripts/components/FormValidator.js';
+import Section from '../scripts/components/Section.js';
+import Card from '../scripts/components/Card.js';
+//import Popup from './Popup.js';
+//import { openModalWindow, closeModalWindow } from './utils.js';
 import {
   configValidation,
   buttonEdit,
@@ -9,28 +12,52 @@ import {
   jobProfile,
   editFormModalWindow,
   cardFormModalWindow,
-  previewFormModalWindow,
+  previevFormModalWindow,
   buttonCloseList,
   formElementSave,
   formElementAdd,
   nameInput,
   jobInput,
   titleInput,
-  linkInput
-} from './constants.js';
+  linkInput,
+  initialCards,
+  containerCardList,
+  editFormSelector,
+  cardFormSelector,
+  popupSubmitButton
+} from '../scripts/utils/constants.js';
+import PopupWithForm from '../scripts/components/PopupWithForm.js';
 
+const CardList = new Section({
+  items: initialCards,
+  renderer: (item, toEnd) => {
+      const newCard = new Card(item, '#element');
+      const method = toEnd ? 'append' : 'prepend';
+  
+      const cardElement = newCard.generateCard();
+  
+      CardList.addItem(cardElement, method);
+  }
+}, containerCardList);
+
+CardList.renderItems();
+
+const popupCardForm = new PopupWithForm(cardFormSelector)
+
+
+/*
 //Закрыть попап нажатием на Esc
 const closePopupByPressEsc = (evt) => {
   const openPopup = document.querySelector('.popup_active');
   if (evt.key === 'Escape') {
-    closeModalWindow(openPopup);
+    //closeModalWindow(openPopup);
   }
-}
+}*/
 
 //Закрыть попап кликом на оверлей
 const closePopupByOverlayClick = (evt) => {
   if (evt.target.classList.contains('popup')) {
-    closeModalWindow(evt.target);
+    //closeModalWindow(evt.target);
   }
 }
 
@@ -44,7 +71,7 @@ const openPopupEditProfile = () => {
   const button = editFormModalWindow.querySelector('.popup__button')
   formEditValidate.activeFormButton(button, 'popup__button_disabled')
 
-  openModalWindow(editFormModalWindow);
+  //openModalWindow(editFormModalWindow);
 }
 
 //Показать попап добавления нового места
@@ -57,7 +84,8 @@ const openPopupAddCard = () => {
   titleInput.value = '';
   linkInput.value = '';
 
-  openModalWindow(cardFormModalWindow);
+  popupCardForm.open();
+  //openModalWindow(cardFormModalWindow);
 }
 
 // Скрыть валидацию при открытии попапов
@@ -82,7 +110,7 @@ const editFormSubmitHandler = (modalWindow) => {
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
 
-  closeModalWindow(editFormModalWindow);
+  //closeModalWindow(editFormModalWindow);
 }
 
 // Создать экземпляры форм валидации
@@ -95,7 +123,7 @@ formAddValidate.enableValidation();
 
 //Cлушатель для закрытия попапа на крестик
 buttonCloseList.forEach( (item) => {
-  item.addEventListener('click', () => closeModalWindow(item.closest('.popup') ) );
+  item.addEventListener('click', popupCardForm.close);
 });
 
 buttonEdit.addEventListener('click', openPopupEditProfile);
@@ -104,11 +132,11 @@ buttonAdd.addEventListener('click', openPopupAddCard);
 // Cлушатели для закрытия попапа на оверлей
 editFormModalWindow.addEventListener('click', closePopupByOverlayClick);
 cardFormModalWindow.addEventListener('click', closePopupByOverlayClick);
-previewFormModalWindow.addEventListener('click', closePopupByOverlayClick);
+previevFormModalWindow.addEventListener('click', closePopupByOverlayClick);
 
 formElementSave.addEventListener('submit', editFormSubmitHandler);
 formElementAdd.addEventListener('submit', addCardFormListener);
 
-export { closePopupByPressEsc };
+//export { closePopupByPressEsc };
 
 

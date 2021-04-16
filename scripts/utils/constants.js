@@ -41,11 +41,17 @@ const jobProfile = document.querySelector('.profile__job');
 
 const editFormModalWindow = document.querySelector('.popup_type_edit-profile');
 const cardFormModalWindow = document.querySelector('.popup_type_add-card');
-const previewFormModalWindow = document.querySelector('.popup_type_preview');
+const previevFormModalWindow = document.querySelector('.popup_type_preview');
+
+const editFormSelector = '.popup_type_edit-profile';
+const cardFormSelector = '.popup_type_add-card';
+const previewFormSelector = '.popup_type_preview';
 
 const buttonCloseList = document.querySelectorAll('.popup__close');
-const nameCard = previewFormModalWindow.querySelector('.popup__title-preview');
-const imageCard = previewFormModalWindow.querySelector('.popup__image');
+const nameCard = previevFormModalWindow.querySelector('.popup__title-preview');
+const imageCard = previevFormModalWindow.querySelector('.popup__image');
+
+const popupSubmitButton = document.querySelector('.popup__button');
 
 const formElementSave = document.querySelector('.save-info');
 const formElementAdd = document.querySelector('.add-newCard');
@@ -55,7 +61,7 @@ const jobInput = document.querySelector('#input_job');
 const titleInput = document.querySelector('#input_title');
 const linkInput = document.querySelector('#input_link');
 
-const containerListCard = document.querySelector('.elements__list');
+const containerCardList = '.elements__list';
 
 export {
   initialCards,
@@ -66,7 +72,10 @@ export {
   jobProfile,
   editFormModalWindow,
   cardFormModalWindow,
-  previewFormModalWindow,
+  previevFormModalWindow,
+  editFormSelector,
+  cardFormSelector,
+  previewFormSelector,
   buttonCloseList,
   nameCard,
   imageCard,
@@ -76,5 +85,6 @@ export {
   jobInput,
   titleInput,
   linkInput,
-  containerListCard
+  containerCardList,
+  popupSubmitButton
 };

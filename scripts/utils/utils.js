@@ -1,4 +1,4 @@
-import { closePopupByPressEsc } from './index.js';
+import { closePopupByPressEsc } from '../../pages/index.js';
 
 //Открыть попап
 const openModalWindow = (modalWindow) => {
