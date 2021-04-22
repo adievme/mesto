@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./src/pages/index.css">
     <title>Mesto Russia</title>
   </head>
   <body class="root">
@@ -45,9 +45,9 @@
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form save-info" name="form" novalidate>
-              <input type="text" placeholder="Имя" value="" id="input_name" class="popup__input" name="name" minlength="2" maxlength="40" required>
+              <input type="text" placeholder="Имя" value="" id="input_name" class="popup__input" name="name_user" minlength="2" maxlength="40" required>
               <span class="popup__error" id="input_name_error"></span>
-              <input type="text" placeholder="О себе" value="" id="input_job" class="popup__input" name="job" minlength="2" maxlength="200" required>
+              <input type="text" placeholder="О себе" value="" id="input_job" class="popup__input" name="info" minlength="2" maxlength="200" required>
               <span class="popup__error" id="input_job_error"></span>
               <button class="popup__button" type="submit" aria-label="save">Сохранить</button>
             </form>
@@ -60,7 +60,7 @@
         <div class="popup__container">
           <h2 class="popup__title">Новое место</h2>
           <form class="popup__form add-newCard" name="form" novalidate>
-            <input type="text" placeholder="Название" value="" id="input_title" class="popup__input" name="title" required>
+            <input type="text" placeholder="Название" value="" id="input_title" class="popup__input" name="name" required>
             <span class="popup__error" id="input_title_error"></span>
             <input type="url" placeholder="Ссылка на картинку" value="" id="input_link" class="popup__input" name="link" required>
             <span class="popup__error" id="input_link_error"></span>
@@ -92,7 +92,7 @@
       </li>
     </template>
 
-    <script type="module" src="./pages/index.js"></script>
+    <script type="module" src="./src/pages/index.js"></script>
     
   </body>
   

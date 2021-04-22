@@ -1,5 +1,4 @@
-
-class FormValidator {
+export default class FormValidator {
   constructor(config, formElement) {
     this._inputSelector = config.inputSelector;
     this._submitButtonSelector = config.submitButtonSelector;
@@ -19,13 +18,11 @@ class FormValidator {
     this._setEventListeners(this._formElement);
   }
 
-  // Активировать кнопку формы
   activeFormButton() {
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.removeAttribute('disabled');
   }
 
-  // Отключить кнопку формы
   inactiveFormButton() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.setAttribute('disabled', true);
@@ -33,20 +30,19 @@ class FormValidator {
 
   // Наложить обработчики лайв-ввода всем инпутам 
   _setEventListeners() {
-    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector) );
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
 
     this._toggleButtonState();
 
-    this._inputList.forEach( (inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });
     });
   }
-
-  // Проверить валидность инпута 
+ 
   _checkInputValidity(inputElement) {
     if (inputElement.validity.valid) {
       this._hideInputError(inputElement);
@@ -57,7 +53,7 @@ class FormValidator {
 
   // Переключить состояние кнопки
   _toggleButtonState() {
-    if (this._hasInvalidInput(this._inputList) ) {
+    if (this._hasInvalidInput(this._inputList)) {
       this.inactiveFormButton();
     } else {
       this.activeFormButton();
@@ -82,11 +78,10 @@ class FormValidator {
   // Убрать ошибку и подкрашивание
   _hideInputError(inputElement) {
     this._errorElement = this._formElement.querySelector(`#${inputElement.id}_error`);
-    this._errorElement.classList.remove(this._errorClass);
+
     this._errorElement.textContent = '';
+    this._errorElement.classList.remove(this._errorClass);
 
     inputElement.classList.remove(this._inputErrorClass);
   }
 }
-
-export { FormValidator };

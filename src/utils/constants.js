@@ -36,8 +36,8 @@ const configValidation = ({
 
 const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
-const nameProfile = document.querySelector('.profile__name');
-const jobProfile = document.querySelector('.profile__job');
+const nameProfile = '.profile__name';
+const infoProfile = '.profile__job';
 
 const editFormModalWindow = document.querySelector('.popup_type_edit-profile');
 const cardFormModalWindow = document.querySelector('.popup_type_add-card');
@@ -57,7 +57,7 @@ const formElementSave = document.querySelector('.save-info');
 const formElementAdd = document.querySelector('.add-newCard');
 
 const nameInput = document.querySelector('#input_name');
-const jobInput = document.querySelector('#input_job');
+const infoInput = document.querySelector('#input_job');
 const titleInput = document.querySelector('#input_title');
 const linkInput = document.querySelector('#input_link');
 
@@ -68,8 +68,6 @@ export {
   configValidation,
   buttonEdit,
   buttonAdd,
-  nameProfile,
-  jobProfile,
   editFormModalWindow,
   cardFormModalWindow,
   previevFormModalWindow,
@@ -82,9 +80,11 @@ export {
   formElementSave,
   formElementAdd,
   nameInput,
-  jobInput,
+  infoInput,
   titleInput,
   linkInput,
   containerCardList,
-  popupSubmitButton
+  popupSubmitButton,
+  nameProfile,
+  infoProfile
 };
