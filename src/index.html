@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/pages/index.css">
     <title>Mesto Russia</title>
   </head>
   <body class="root">
@@ -11,14 +10,14 @@
     <div class="page">
 
       <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="логотип">
+      <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип">
       </header>
 
       <main class="content">
 
         <section class="profile">
           <div class="profile__info">
-            <img class="profile__avatar" src="./images/Reinhold-Messner.png" alt="аватар"> 
+            <img class="profile__avatar" src="<%=require('./images/Reinhold-Messner.png')%>" alt="аватар"> 
               <div class="profile__info-edit">  
                 <div class="profile__header">
                   <h1 class="profile__name">Райнхольд Месснер</h1>
@@ -92,8 +91,6 @@
       </li>
     </template>
 
-    <script type="module" src="./src/pages/index.js"></script>
-    
   </body>
   
 </html>

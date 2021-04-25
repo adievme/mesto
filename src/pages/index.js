@@ -1,3 +1,4 @@
+import './index.css';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import Card from '../components/Card.js';
@@ -71,7 +72,7 @@ const openPopupEditProfile = () => {
   nameInput.value = formDataUser.nameUser;
   infoInput.value = formDataUser.infoUser;
 
-  removeErrorElements(editFormModalWindow);
+  formEditValidate.removeErrorElements(editFormModalWindow);
 
   const button = editFormModalWindow.querySelector('.popup__button')
   formEditValidate.activeFormButton(button, 'popup__button_disabled')
@@ -83,27 +84,12 @@ const openPopupAddCard = () => {
   const button = cardFormModalWindow.querySelector('.popup__button')
   formAddValidate.inactiveFormButton(button, 'popup__button_disabled');
 
-  removeErrorElements(cardFormModalWindow);
+  formAddValidate.removeErrorElements(cardFormModalWindow);
 
   titleInput.value = '';
   linkInput.value = '';
 
   popupFormAddCard.open();
-}
-
-// Скрыть валидацию при открытии попапов
-const removeErrorElements = (modalWindow) => {
-  // Удалить ошибки
-  const errorList = Array.from(modalWindow.querySelectorAll('.popup__error'));
-  errorList.forEach( (error) => {
-    error.classList.remove('popup__error_visible');
-    error.textContent = '';
-  });
-  // Удалить нижнее подчеркивание
-  const InputList = Array.from(modalWindow.querySelectorAll('.popup__input'));
-  InputList.forEach( (input) => {
-    input.classList.remove('popup__input_type_error');
-  });
 }
 
 // Наложить обработчики на попапы форм

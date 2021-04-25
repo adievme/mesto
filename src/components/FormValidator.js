@@ -84,4 +84,18 @@ export default class FormValidator {
 
     inputElement.classList.remove(this._inputErrorClass);
   }
+
+  // Скрыть валидацию при открытии попапов
+  removeErrorElements(modalWindow) {
+    // Удалить ошибки
+    this._errorList = Array.from(modalWindow.querySelectorAll('.popup__error'));
+    this._errorList.forEach( (error) => {
+      error.classList.remove(this._errorClass);
+      error.textContent = '';
+    });
+    // Удалить нижнее подчеркивание
+    this._inputList.forEach( (input) => {
+      input.classList.remove(this._inputErrorClass);
+    });
+  }
 }
