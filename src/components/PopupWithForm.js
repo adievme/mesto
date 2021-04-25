@@ -1,9 +1,3 @@
-import { 
-  nameInput, 
-  infoInput, 
-  titleInput, 
-  linkInput 
-} from '../utils/constants.js';
 import Popup from './Popup.js';
 
 export default class PopupWithForm extends Popup {
@@ -17,10 +11,7 @@ export default class PopupWithForm extends Popup {
     this._formValues = {}; // оббъект значений всех инпутов
 
     this._inputList.forEach( (input) => {
-      this._formValues[input.name = 'name'] = titleInput.value;
-      this._formValues[input.name = 'link'] = linkInput.value;
-      this._formValues[input.name = 'name_user'] = nameInput.value;
-      this._formValues[input.name = 'info'] = infoInput.value;
+      this._formValues[input.name] = input.value; 
     });
 
     return this._formValues;
@@ -31,6 +22,7 @@ export default class PopupWithForm extends Popup {
     .addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._submitCallback(this._getInputValues());
+      this.close();
     });
     
     super.setEventListeners();

@@ -55,7 +55,6 @@ const popupFormEditProfile = new PopupWithForm({
   popupSelector: editFormSelector,
   submitCallback: (formData) => {
     UserInfoProfile.setUserInfo({ data: formData });
-    popupFormEditProfile.close();
   }
 });
 
@@ -63,7 +62,6 @@ const popupFormAddCard = new PopupWithForm({
   popupSelector: cardFormSelector,
   submitCallback: (formData) => {
     addCardToContainer(createCard(formData), false); // добавить новую карточку в начало контейнера
-    popupFormAddCard.close();
   }
 });
 
@@ -74,15 +72,13 @@ const openPopupEditProfile = () => {
 
   formEditValidate.removeErrorElements(editFormModalWindow);
 
-  const button = editFormModalWindow.querySelector('.popup__button')
-  formEditValidate.activeFormButton(button, 'popup__button_disabled')
+  formEditValidate.activeFormButton();
 
   popupFormEditProfile.open();
 }
 
 const openPopupAddCard = () => {
-  const button = cardFormModalWindow.querySelector('.popup__button')
-  formAddValidate.inactiveFormButton(button, 'popup__button_disabled');
+  formAddValidate.inactiveFormButton();
 
   formAddValidate.removeErrorElements(cardFormModalWindow);
 
