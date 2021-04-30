@@ -42,11 +42,13 @@ const infoProfile = '.profile__job';
 const editFormModalWindow = document.querySelector('.popup_type_edit-profile');
 const cardFormModalWindow = document.querySelector('.popup_type_add-card');
 const previevFormModalWindow = document.querySelector('.popup_type_preview');
+const updateFormModalWindow = document.querySelector('.popup_type_update-avatar');
 
 const editFormSelector = '.popup_type_edit-profile';
 const cardFormSelector = '.popup_type_add-card';
 const previewFormSelector = '.popup_type_preview';
 const deleteFormSelector = '.popup_type_delete';
+const updateFormSelector = '.popup_type_update-avatar';
 
 const buttonCloseList = document.querySelectorAll('.popup__close');
 const nameCard = previevFormModalWindow.querySelector('.popup__title-preview');
@@ -88,5 +90,7 @@ export {
   popupSubmitButton,
   nameProfile,
   infoProfile,
-  deleteFormSelector
+  deleteFormSelector,
+  updateFormModalWindow,
+  updateFormSelector
 };

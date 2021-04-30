@@ -22,8 +22,11 @@ import {
   cardFormSelector,
   previewFormSelector,
   nameProfile, 
-  infoProfile
+  infoProfile,
+  updateFormModalWindow,
+  updateFormSelector
 } from '../utils/constants.js';
+import Popup from '../components/Popup';
 
 const cardList = new Section({
   items: initialCards,
@@ -88,21 +91,37 @@ const openPopupAddCard = () => {
   popupFormAddCard.open();
 }
 
+const popupFormUpdate = new Popup(updateFormSelector);
+
+const openPopupUpdate = () => {
+  formUpdateValidate.inactiveFormButton();
+  formUpdateValidate.removeErrorElements(updateFormModalWindow);
+
+  popupFormUpdate.open();
+}
+
 // Наложить обработчики на попапы форм
 popupFormEditProfile.setEventListeners();
 popupFormAddCard.setEventListeners();
+popupFormUpdate.setEventListeners();
 
 // Создать экземпляр класса открытия попапа с изображением
 const openPopupWithImage = new PopupWithImage(previewFormSelector);
 
+
+
 // Создать экземпляры форм валидации
 const formEditValidate = new FormValidator(configValidation, editFormModalWindow);
 const formAddValidate = new FormValidator(configValidation, cardFormModalWindow);
+const formUpdateValidate = new FormValidator(configValidation, updateFormModalWindow);
 
 // Включить валидацию формы
 formEditValidate.enableValidation();
 formAddValidate.enableValidation();
+formUpdateValidate.enableValidation();
 
 // Слушатели кнопок редактирования и добавления 
 buttonEdit.addEventListener('click', openPopupEditProfile);
 buttonAdd.addEventListener('click', openPopupAddCard);
+
+document.querySelector('.profile__avatar').addEventListener('click', openPopupUpdate);
