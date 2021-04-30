@@ -46,6 +46,7 @@ const previevFormModalWindow = document.querySelector('.popup_type_preview');
 const editFormSelector = '.popup_type_edit-profile';
 const cardFormSelector = '.popup_type_add-card';
 const previewFormSelector = '.popup_type_preview';
+const deleteFormSelector = '.popup_type_delete';
 
 const buttonCloseList = document.querySelectorAll('.popup__close');
 const nameCard = previevFormModalWindow.querySelector('.popup__title-preview');
@@ -86,5 +87,6 @@ export {
   containerCardList,
   popupSubmitButton,
   nameProfile,
-  infoProfile
+  infoProfile,
+  deleteFormSelector
 };
