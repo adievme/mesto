@@ -4,8 +4,11 @@
 @import url(../blocks/page/page.css);
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
+
 @import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar-wrapper/profile__avatar-wrapper.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__avatar-edit-button/profile__avatar-edit-button.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__job/profile__job.css);
 @import url(../blocks/profile/__info/profile__info.css);
@@ -13,6 +16,7 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__header/profile__header.css);
 @import url(../blocks/profile/__info-edit/profile__info-edit.css);
+
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__list/elements__list.css);
 @import url(../blocks/elements/__item/element__item.css);
@@ -22,6 +26,11 @@
 @import url(../blocks/elements/__like-button/_active/element__like-button_active.css);
 @import url(../blocks/elements/__name/element__name.css);
 @import url(../blocks/elements/__delete/element__delete.css);
+@import url(../blocks/elements/__delete/_inactive/element__delete_inactive.css);
+@import url(../blocks/elements/__like-wrapper/element__like-wrapper.css);
+@import url(../blocks/elements/__like-count/element__like-count.css);
+
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
 @import url(../blocks/popup/popup.css);
@@ -29,9 +38,9 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
 @import url(../blocks/popup/__button/popup__button.css);
-@import url(../blocks/popup/__button-delete/popup__button-delete.css);
+@import url(../blocks/popup/__button/_delete/popup__button_delete.css);
 @import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__title-delete/popup__title-delete.css);
+@import url(../blocks/popup/__title/_delete/popup__title_delete.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/_active/popup_active.css);

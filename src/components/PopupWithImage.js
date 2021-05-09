@@ -5,7 +5,7 @@ export default class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
   }
-  open({ data }) {
+  open(data) {
     super.open();
     
     imageCard.src = data.link;

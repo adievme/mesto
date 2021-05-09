@@ -38,6 +38,8 @@ const buttonEdit = document.querySelector('.profile__edit-button');
 const buttonAdd = document.querySelector('.profile__add-button');
 const nameProfile = '.profile__name';
 const infoProfile = '.profile__job';
+const avatarProfile = '.profile__avatar';
+const avatarEditButton = document.querySelector('profile__avatar-edit-button');
 
 const editFormModalWindow = document.querySelector('.popup_type_edit-profile');
 const cardFormModalWindow = document.querySelector('.popup_type_add-card');
@@ -92,5 +94,7 @@ export {
   infoProfile,
   deleteFormSelector,
   updateFormModalWindow,
-  updateFormSelector
+  updateFormSelector,
+  avatarProfile,
+  avatarEditButton
 };
