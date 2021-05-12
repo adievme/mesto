@@ -17,12 +17,6 @@ export default class Api {
     }).then(this._checkResponse)
   }
 
-  getUserId() {
-    return fetch(`${this._baseUrl}users/me`, {
-      headers: this._headers
-    }).then(this._checkResponse)
-  }
-
   addCard(data) {
     return fetch(`${this._baseUrl}cards`, {
       method: 'POST',

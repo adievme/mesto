@@ -16,7 +16,6 @@ import {
   infoInput,
   titleInput,
   linkInput,
-  initialCards,
   containerCardList,
   editFormSelector,
   cardFormSelector,
@@ -40,7 +39,7 @@ const api = new Api({
   }
 }); 
 
-const UserInfoProfile = new UserInfo({
+const userInfoProfile = new UserInfo({
   nameUserSelector: nameProfile, 
   infoUserSelector: infoProfile,
   avatarUserSelector: avatarProfile
@@ -50,12 +49,13 @@ const popupDeleteCard = new PopupWithSubmit(deleteFormSelector);
 
 // рендер массива карточек
 api.getInitialCards()
-.then(data => cardList.renderItems(data)); 
+.then(data => cardList.renderItems(data))
+.catch((err) => console.log(err))
 
 // отобразить данные пользователя
 api.getUserInfo()
 .then( (data) => {
-  UserInfoProfile.setUserInfo(data)
+  userInfoProfile.setUserInfo(data)
   userId = data._id
 })
 .catch((err) => console.log(err))
@@ -76,7 +76,6 @@ const createCard = (data) => {
         .then( _ => {
           card.handleDeleteCard()
           popupDeleteCard.close()
-          console.log
         })
         .catch((err) => console.log(err))
         .finally( () => popupDeleteCard.renderLoadingDelete(false))
@@ -101,6 +100,7 @@ const popupFormAddCard = new PopupWithForm({
       popupFormAddCard.renderLoading(true)
       api.addCard(formData) // промис данных новой карточки
       .then(cardData => addCardToContainer(createCard(cardData), false))
+      .catch((err) => console.log(err))
       .finally(() => popupFormAddCard.renderLoading(false))
     }
 });  
@@ -110,7 +110,7 @@ const popupFormEditProfile = new PopupWithForm({
   submitCallback: (formData) => {
     popupFormEditProfile.renderLoading(true)
     api.changeUserInfo(formData) // промис обновленной информации пользователя
-    .then( formData => UserInfoProfile.setUserInfo(formData))
+    .then( formData => userInfoProfile.setUserInfo(formData))
     .finally(() => popupFormEditProfile.renderLoading(false))
   }
 });
@@ -120,7 +120,8 @@ const popupFormUpdateAvatar = new PopupWithForm({
   submitCallback: (formData) => {
     popupFormUpdateAvatar.renderLoading(true)
     api.changeUserAvatar(formData)
-    .then((formData) => UserInfoProfile.setUserAvatar(formData))
+    .then((formData) => userInfoProfile.setUserAvatar(formData))
+    .catch((err) => console.log(err))
     .finally(() => popupFormUpdateAvatar.renderLoading(false))
   }
 });
@@ -133,7 +134,7 @@ const openPopupUpdate = () => {
 }
 
 const openPopupEditProfile = () => {
-  const formDataUser = UserInfoProfile.getUserInfo();
+  const formDataUser = userInfoProfile.getUserInfo();
   nameInput.value = formDataUser.nameUser;
   infoInput.value = formDataUser.infoUser;
 
@@ -159,20 +160,24 @@ let userId
 
 api.getAllNeededData() // возвращает результат исполнения нужных промисов (карточки и информация пользователя)
   .then(( [cards, userData] ) => {
-    UserInfoProfile.setUserInfo(userData)
+    userInfoProfile.setUserInfo(userData)
     userId = userData._id
     
     cardList.renderItems(cards)
   })
+  .catch((err) => console.log(err))
+
+const openPopupWithImage = new PopupWithImage(previewFormSelector);
 
 // Наложить обработчики на попапы форм
 popupFormEditProfile.setEventListeners();
 popupFormAddCard.setEventListeners();
 popupFormUpdateAvatar.setEventListeners();
 popupDeleteCard.setEventListeners();
+openPopupWithImage.setEventListeners();
 
 // Создать экземпляр класса открытия попапа с изображением
-const openPopupWithImage = new PopupWithImage(previewFormSelector);
+
 
 // Создать экземпляры форм валидации
 const formEditValidate = new FormValidator(configValidation, editFormModalWindow);

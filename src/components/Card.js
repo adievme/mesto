@@ -73,11 +73,13 @@ export default class Card {
         likeButton.classList.add('element__like-button_active');
         likeCount.textContent = data.likes.length;
       })
+      .catch((err) => console.log(err))
     } else {
       this._api.dislike(this._id).then((data) => {
         likeButton.classList.remove('element__like-button_active');
         likeCount.textContent = data.likes.length;
       })
+      .catch((err) => console.log(err))
     }
   }
 }
