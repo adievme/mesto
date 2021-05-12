@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: 'Эверест',
-    link: 'https://i.ibb.co/qpkfHd4/image.jpg'
-  },
-  {
-    name: 'Канченджанга',
-    link: 'https://i.ibb.co/bFpsJg8/image.jpg'
-  },
-  {
-    name: 'Аннапурна',
-    link: 'https://i.ibb.co/L9h8cz0/image.jpg'
-  },
-  {
-    name: 'Манаслу',
-    link: 'https://i.ibb.co/pWRvzg9/image.jpg'
-  },
-  {
-    name: 'Дхаулагири',
-    link: 'https://i.ibb.co/5YDJTGr/image.jpg'
-  },
-  {
-    name: 'Чогори',
-    link: 'https://i.ibb.co/4SmLZvJ/image.jpg'
-  }
-]
-
 const configValidation = ({
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -69,7 +42,6 @@ const linkInput = document.querySelector('#input_link');
 const containerCardList = '.elements__list';
 
 export {
-  initialCards,
   configValidation,
   buttonEdit,
   buttonAdd,
