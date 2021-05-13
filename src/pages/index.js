@@ -47,19 +47,6 @@ const userInfoProfile = new UserInfo({
 
 const popupDeleteCard = new PopupWithSubmit(deleteFormSelector);
 
-// рендер массива карточек
-api.getInitialCards()
-.then(data => cardList.renderItems(data))
-.catch((err) => console.log(err))
-
-// отобразить данные пользователя
-api.getUserInfo()
-.then( (data) => {
-  userInfoProfile.setUserInfo(data)
-  userId = data._id
-})
-.catch((err) => console.log(err))
-
 const cardList = new Section({
   renderer: item => addCardToContainer(createCard(item), true) // создать карточки и отобразить их на странице
 }, containerCardList)
@@ -99,7 +86,10 @@ const popupFormAddCard = new PopupWithForm({
     submitCallback: (formData) => {
       popupFormAddCard.renderLoading(true)
       api.addCard(formData) // промис данных новой карточки
-      .then(cardData => addCardToContainer(createCard(cardData), false))
+      .then( (cardData) => {
+        addCardToContainer(createCard(cardData), false)
+        popupFormAddCard.close()
+      })
       .catch((err) => console.log(err))
       .finally(() => popupFormAddCard.renderLoading(false))
     }
@@ -110,7 +100,10 @@ const popupFormEditProfile = new PopupWithForm({
   submitCallback: (formData) => {
     popupFormEditProfile.renderLoading(true)
     api.changeUserInfo(formData) // промис обновленной информации пользователя
-    .then( formData => userInfoProfile.setUserInfo(formData))
+    .then( (formData) => {
+      userInfoProfile.setUserInfo(formData)
+      popupFormEditProfile.close()
+    })
     .finally(() => popupFormEditProfile.renderLoading(false))
   }
 });
@@ -120,7 +113,10 @@ const popupFormUpdateAvatar = new PopupWithForm({
   submitCallback: (formData) => {
     popupFormUpdateAvatar.renderLoading(true)
     api.changeUserAvatar(formData)
-    .then((formData) => userInfoProfile.setUserAvatar(formData))
+    .then( (formData) => { 
+      userInfoProfile.setUserAvatar(formData)
+      popupFormUpdateAvatar.close()
+    })
     .catch((err) => console.log(err))
     .finally(() => popupFormUpdateAvatar.renderLoading(false))
   }
@@ -147,11 +143,7 @@ const openPopupEditProfile = () => {
 
 const openPopupAddCard = () => {
   formAddValidate.inactiveFormButton();
-
   formAddValidate.removeErrorElements();
-
-  titleInput.value = '';
-  linkInput.value = '';
 
   popupFormAddCard.open();
 }
