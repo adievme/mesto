@@ -128,7 +128,7 @@ const popupFormUpdateAvatar = new PopupWithForm({
 
 const openPopupUpdate = () => {
   formUpdateValidate.inactiveFormButton();
-  formUpdateValidate.removeErrorElements(updateFormModalWindow);
+  formUpdateValidate.removeErrorElements();
 
   popupFormUpdateAvatar.open();
 }
@@ -138,7 +138,7 @@ const openPopupEditProfile = () => {
   nameInput.value = formDataUser.nameUser;
   infoInput.value = formDataUser.infoUser;
 
-  formEditValidate.removeErrorElements(editFormModalWindow);
+  formEditValidate.removeErrorElements();
 
   formEditValidate.activeFormButton();
 
@@ -148,7 +148,7 @@ const openPopupEditProfile = () => {
 const openPopupAddCard = () => {
   formAddValidate.inactiveFormButton();
 
-  formAddValidate.removeErrorElements(cardFormModalWindow);
+  formAddValidate.removeErrorElements();
 
   titleInput.value = '';
   linkInput.value = '';

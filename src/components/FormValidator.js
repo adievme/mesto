@@ -86,8 +86,7 @@ export default class FormValidator {
   }
 
   // Скрыть валидацию при открытии попапов
-  removeErrorElements(modalWindow) {
-    this._inputList = Array.from(modalWindow.querySelectorAll('.popup__input'));
+  removeErrorElements() {
     this._inputList.forEach( (input) => {
       this._hideInputError(input)
     })

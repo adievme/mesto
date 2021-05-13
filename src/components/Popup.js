@@ -18,12 +18,8 @@ export default class Popup {
     if (evt.key === 'Escape') this.close(); 
   }
   
+  // Слушатель закрытия попапа
   setEventListeners() {
-    // Слушатель закрытия попапа на крестик
-    this._popup.querySelector('.popup__close')
-    .addEventListener('click', () => this.close());
-
-    // Слушатель закрытия попапа на оверлей
     this._popup.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
         this.close();
